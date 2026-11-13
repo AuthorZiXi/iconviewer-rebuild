@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Download the latest release
+    url: https://github.com/AuthorZiXi/iconviewer-rebuild/releases
+    about: Get IconViewerRebuild.exe (x64, portable) from the Releases page.
+  - name: Build and usage documentation
+    url: https://github.com/AuthorZiXi/iconviewer-rebuild/blob/main/docs/BUILDING.md
+    about: How to build from source, run the test harnesses and regenerate the icon.

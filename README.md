@@ -2,6 +2,13 @@
 
 <p align="center"><img src="docs/icon.png" width="120" alt="IconViewer Rebuild"></p>
 
+<p align="center">
+  <a href="../../releases"><img src="https://img.shields.io/github/v/release/AuthorZiXi/iconviewer-rebuild?label=release&color=4c8dff" alt="Release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/AuthorZiXi/iconviewer-rebuild?color=3fb950" alt="License"></a>
+  <img src="https://img.shields.io/badge/platform-Windows%207%2B%20x64-0078d4" alt="Platform">
+  <img src="https://img.shields.io/badge/language-C%2B%2B%20%C2%B7%20Win32-00599c" alt="Language">
+</p>
+
 A small portable Windows tool that shows **every icon and device image inside a program,
 library or icon file** — a from-scratch Win32 reimplementation of the classic
 [IconViewer 3.02](https://www.botproductions.com/iconview/iconview.html) Explorer property
@@ -39,32 +46,18 @@ No installation, no shell extension, no dependencies: one `IconViewerRebuild.exe
 
 ## Download
 
-Grab `IconViewerRebuild.exe` from the [releases](../../releases) page. x64, Windows 7 or
-newer, no runtime to install.
+Grab `IconViewerRebuild.exe` from the **[releases page](../../releases)** — x64, Windows 7 or
+newer, single file, no runtime to install. Current version: **1.0.0**.
 
-CI also builds the same exe on every push: open **Actions → build → the latest run** and
-download the `IconViewerRebuild-x64` artifact from the *Artifacts* section at the bottom of
-the run summary (it is a `.zip`). Artifacts expire after 30 days; releases are uploaded
-manually.
+The exe is unsigned, so SmartScreen may ask once; there is no installer and nothing is
+registered in Explorer.
 
-## Build
+## Screenshots
 
-Requirements: Visual Studio 2022/2026 Build Tools (MSVC + Windows 10/11 SDK).
-
-```bat
-build.bat
-:: -> build\IconViewerRebuild.exe
-```
-
-or with CMake:
-
-```bat
-cmake -S . -B out -A x64
-cmake --build out --config Release
-:: -> out\Release\IconViewerRebuild.exe
-```
-
-The `build` workflow in `.github/workflows` produces the same binary on `windows-latest`.
+|  |  |
+| --- | --- |
+| ![Multiple files](docs/screenshots/rebuild_multiple_files.png) | ![Options](docs/screenshots/rebuild_options.png) |
+| Several files, grouped by file | Options: background colour and ordering |
 
 ## Usage
 
@@ -87,6 +80,48 @@ IconViewerRebuild.exe [files...]
 | Export many | File > Export Icons… |
 | Change look/order | View > Options… |
 | Change language | View > Language |
+
+## FAQ
+
+**Why not a shell extension like the original?**
+Because a portable exe is easier to keep working, needs no admin rights, cannot crash
+Explorer, and works on files you cannot easily right-click (a DLL inside a package, a file on
+a network share). Use *Open with…* if you want it from Explorer.
+
+**Does it need administrator rights?** No. Settings go to
+`HKCU\Software\IconViewerRebuild` and nothing else is written.
+
+**Why does SmartScreen complain?** The exe is not code-signed. Build it yourself with
+`build.bat` if you prefer, the result is byte-for-byte equivalent in behaviour.
+
+**Some icons show as black squares.** Those resources really are black (or fully
+transparent) 16×16 images — Windows shows the same thing. Use the device-image list to pick a
+different size.
+
+**Can I paste into Explorer?** Yes — Ctrl+C puts the icons on the clipboard as files
+(`CF_HDROP`), so `Ctrl+V` in a folder writes `.ico` files.
+
+**Does it support .ani, .icns, SVG?** Not today. `.ico`, `.cur` and PE resources only.
+
+## Build
+
+Requirements: Visual Studio 2022/2026 Build Tools (MSVC + Windows SDK).
+
+```bat
+build.bat
+:: -> build\IconViewerRebuild.exe
+```
+
+or with CMake:
+
+```bat
+cmake -S . -B out -A x64
+cmake --build out --config Release
+:: -> out\Release\IconViewerRebuild.exe
+```
+
+Details, the console test harnesses and troubleshooting notes are in
+[docs/BUILDING.md](docs/BUILDING.md).
 
 ## How it works
 
@@ -113,15 +148,17 @@ See [ATTRIBUTION.md](ATTRIBUTION.md).
 src/            C++ sources (common, strings, bitmap, icofile, dataobject, settings, preview, main)
 res/            app.rc, manifest, generated app.ico
 tools/icon/     icon renderer + ICO packer (PowerShell + Node)
+tools/social/   repository social-preview generator
 tests/          console harnesses for loading and saving
-docs/           analysis notes and screenshots
+docs/           analysis notes, build guide, release notes, screenshots
 ```
 
-## Regenerating the icon
+## Regenerating the assets
 
 ```bat
 powershell -File tools\icon\render-icon.ps1
 node tools\icon\make-ico.js
+powershell -File tools\social\make-social-preview.ps1
 ```
 
 ## License
