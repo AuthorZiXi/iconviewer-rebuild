@@ -1,0 +1,26 @@
+# build output
+build/
+out/
+*.obj
+*.res
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.exe
+*.dll
+
+# generated icon sizes (regenerate with tools/icon/render-icon.ps1)
+tools/icon/sizes/
+
+# IDE / editor
+.vs/
+.vscode/
+*.user
+*.suo
+.idea/
+
+# misc
+*.log
+Thumbs.db
+.DS_Store

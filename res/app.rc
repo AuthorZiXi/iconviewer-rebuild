@@ -1,0 +1,83 @@
+#include <windows.h>
+#include "resource.h"
+
+IDI_APP ICON "app.ico"
+CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "app.manifest"
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK 0x3fL
+ FILEFLAGS 0x0L
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "IconViewer Rebuild contributors"
+            VALUE "FileDescription", "IconViewer Rebuild"
+            VALUE "FileVersion", "1.0.0.0"
+            VALUE "InternalName", "IconViewerRebuild"
+            VALUE "LegalCopyright", "MIT License - IconViewer Rebuild contributors"
+            VALUE "OriginalFilename", "IconViewerRebuild.exe"
+            VALUE "ProductName", "IconViewer Rebuild"
+            VALUE "ProductVersion", "1.0.0.0"
+            VALUE "Comments", "Independent Win32 reimplementation of IconViewer 3.02"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+ID_ACCEL ACCELERATORS
+BEGIN
+    "O", ID_FILE_OPEN, VIRTKEY, CONTROL
+    "S", ID_FILE_SAVEAS, VIRTKEY, CONTROL
+    "C", ID_EDIT_COPY, VIRTKEY, CONTROL
+    "A", ID_EDIT_SELECTALL, VIRTKEY, CONTROL
+    VK_F5, ID_VIEW_REFRESH, VIRTKEY
+    VK_F1, ID_HELP, VIRTKEY
+END
+
+IDD_OPTIONS DIALOGEX 0, 0, 252, 241
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "IconViewer Rebuild Options"
+FONT 9, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Background Color", IDC_OPT_GROUP1, 7, 7, 238, 60
+    LTEXT           "Choose a color for transparent pixels.", IDC_OPT_DESC, 13, 19, 226, 18
+    CONTROL         "", IDC_OPT_COLOR_BTN, "Button", BS_OWNERDRAW | WS_TABSTOP, 13, 42, 62, 15
+    PUSHBUTTON      "&Restore Default", IDC_OPT_COLOR_DEFAULT, 81, 42, 72, 15
+
+    GROUPBOX        "Device Images List Order", IDC_OPT_GROUP2, 7, 73, 238, 106
+    CONTROL         "List images in the order they are stored in the &icon (default)", IDC_OPT_ORDER_STORED, "Button", BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP, 13, 87, 226, 10
+    CONTROL         "List images &from", IDC_OPT_ORDER_LIST, "Button", BS_AUTORADIOBUTTON, 13, 103, 62, 10
+    COMBOBOX        IDC_OPT_COMBO1, 77, 101, 88, 80, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "&then", IDC_OPT_THEN, 13, 119, 62, 10
+    COMBOBOX        IDC_OPT_COMBO2, 77, 117, 88, 80, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    CONTROL         "Enable IconViewer when multiple files are selected", IDC_OPT_MULTIFILES, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 13, 187, 226, 10
+    CONTROL         "Group icons by file", IDC_OPT_GROUPFILES, "Button", BS_AUTOCHECKBOX | WS_TABSTOP, 13, 200, 226, 10
+
+    DEFPUSHBUTTON   "OK", IDOK, 130, 219, 55, 15
+    PUSHBUTTON      "Cancel", IDCANCEL, 190, 219, 55, 15
+END
+
+IDD_ABOUT DIALOGEX 0, 0, 300, 124
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About IconViewer Rebuild"
+FONT 9, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    ICON            IDI_APP, IDC_ABOUT_ICON, 10, 10, 32, 32
+    LTEXT           "IconViewer Rebuild 1.0.0", IDC_ABOUT_TITLE, 54, 11, 236, 10
+    LTEXT           "Copyright (C) 2008 Bot Productions.", IDC_ABOUT_COPYRIGHT, 54, 24, 236, 9
+    LTEXT           "An independent Win32 reimplementation.", IDC_ABOUT_DESC, 54, 36, 236, 18
+    CONTROL         "https://www.botproductions.com/iconview/iconview.html", IDC_ABOUT_LINK, "Static", SS_LEFT | SS_NOTIFY | WS_CHILD, 54, 58, 236, 9
+    LTEXT           "Not affiliated with Bot Productions.", IDC_ABOUT_NOTE, 54, 70, 236, 18
+    DEFPUSHBUTTON   "OK", IDOK, 235, 101, 55, 15
+END
