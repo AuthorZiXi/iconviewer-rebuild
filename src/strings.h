@@ -77,6 +77,7 @@ enum StrId : int {
     S_ABOUT_NOTE,
     S_ABOUT_LINK,
     S_STATUS_NOICONS_MULTI,
+    S_ABOUT_CREDIT,
     S_COUNT
 };
 

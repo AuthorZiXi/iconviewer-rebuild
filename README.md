@@ -9,6 +9,9 @@ page, rebuilt as a standalone app.
 
 No installation, no shell extension, no dependencies: one `IconViewerRebuild.exe`.
 
+> Built with **DSH** + **DeepSeek-V4.1-Flash (1017)** — analysis, implementation, icon and
+> docs were produced in that setup. See [CREDITS.md](CREDITS.md).
+
 ![IconViewer Rebuild](docs/screenshots/rebuild_main.png)
 
 ---
@@ -36,8 +39,13 @@ No installation, no shell extension, no dependencies: one `IconViewerRebuild.exe
 
 ## Download
 
-Grab `IconViewerRebuild.exe` from the [releases](../../releases) page or from a CI build
-artifact. x64, Windows 7 or newer, no runtime to install.
+Grab `IconViewerRebuild.exe` from the [releases](../../releases) page. x64, Windows 7 or
+newer, no runtime to install.
+
+CI also builds the same exe on every push: open **Actions → build → the latest run** and
+download the `IconViewerRebuild-x64` artifact from the *Artifacts* section at the bottom of
+the run summary (it is a `.zip`). Artifacts expire after 30 days; releases are uploaded
+manually.
 
 ## Build
 
@@ -120,3 +128,8 @@ node tools\icon\make-ico.js
 
 MIT — see [LICENSE](LICENSE). Original IconViewer is © 2008 Bot Productions and is **not**
 part of this project.
+
+## Credits
+
+Produced with **DSH** (DeepSeek Harness) driving **DeepSeek-V4.1-Flash (1017)**. Details in
+[CREDITS.md](CREDITS.md).

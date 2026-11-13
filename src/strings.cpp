@@ -84,6 +84,7 @@ const wchar_t* kEn[S_COUNT] = {
     L"Not affiliated with Bot Productions. IconViewer (C) 2008 Bot Productions.",
     L"https://www.botproductions.com/iconview/iconview.html",
     L"The selected files do not contain any icons.",
+    L"Built with DSH + DeepSeek-V4.1-Flash (1017).",
 };
 
 const wchar_t* kZh[S_COUNT] = {
@@ -168,6 +169,7 @@ const wchar_t* kZh[S_COUNT] = {
     L"与 Bot Productions 无隶属关系；原版 IconViewer 版权归其所有。",
     L"https://www.botproductions.com/iconview/iconview.html",
     L"所选文件不包含任何图标。",
+    L"由 DSH + DeepSeek-V4.1-Flash (1017) 构建。",
 };
 
 int g_langSetting = 0;
