@@ -32,9 +32,18 @@ It is a single portable exe — put it anywhere and run it. There is nothing to 
 nothing is registered in Explorer. Settings live in
 `HKCU\Software\IconViewerRebuild`.
 
+## Checksum
+
+```
+SHA256  6c2d41700db251339f012dc65a89d9e88856935bc8dd7e5aa39d26dcb3394c9d  IconViewerRebuild.exe
+```
+
+Verify with `certutil -hashfile IconViewerRebuild.exe SHA256` (or `Get-FileHash`).
+
 ## Notes
 
 * MIT licensed. The original IconViewer is © 2008 Bot Productions; this project is not
   affiliated with them and ships none of their code or assets.
 * Built with **DSH + DeepSeek-V4.1-Flash (1017)** — see `CREDITS.md`.
-* Checksums: `SHA256  <fill in>`.
+* Size: 346,624 bytes. The CI build is byte-different (the PE timestamp), so re-check the hash
+  if you upload the CI artifact instead of the local build.
