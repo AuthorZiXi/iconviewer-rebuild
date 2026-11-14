@@ -35,7 +35,7 @@ nothing is registered in Explorer. Settings live in
 ## Checksum
 
 ```
-SHA256  6c2d41700db251339f012dc65a89d9e88856935bc8dd7e5aa39d26dcb3394c9d  IconViewerRebuild.exe
+SHA256  04418933a23a4599ca455711934b793419be2517ffdfee20a95d9ea0d7b07e2f  IconViewerRebuild.exe
 ```
 
 Verify with `certutil -hashfile IconViewerRebuild.exe SHA256` (or `Get-FileHash`).

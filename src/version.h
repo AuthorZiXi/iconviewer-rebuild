@@ -6,5 +6,5 @@
 #define APP_VERSION_MINOR 0
 #define APP_VERSION_PATCH 0
 #define APP_VERSION_BUILD 0
-#define APP_URL L"https://www.botproductions.com/iconview/iconview.html"
+#define APP_URL L"https://github.com/AuthorZiXi/iconviewer-rebuild"
 #define APP_COPYRIGHT L"MIT License - IconViewer Rebuild contributors"

@@ -694,7 +694,6 @@ static INT_PTR CALLBACK AboutProc(HWND hDlg, UINT msg, WPARAM wp, LPARAM lp) {
         SetDlgItemTextW(hDlg, IDC_ABOUT_TITLE, T(S_ABOUT_VERSION));
         SetDlgItemTextW(hDlg, IDC_ABOUT_COPYRIGHT, T(S_ABOUT_COPYRIGHT));
         SetDlgItemTextW(hDlg, IDC_ABOUT_DESC, T(S_ABOUT_DESC));
-        SetDlgItemTextW(hDlg, IDC_ABOUT_NOTE, T(S_ABOUT_NOTE));
         SetDlgItemTextW(hDlg, IDC_ABOUT_CREDIT, T(S_ABOUT_CREDIT));
         SetDlgItemTextW(hDlg, IDC_ABOUT_LINK, T(S_ABOUT_LINK));
         SetDlgItemTextW(hDlg, IDOK, T(S_OPT_OK));
